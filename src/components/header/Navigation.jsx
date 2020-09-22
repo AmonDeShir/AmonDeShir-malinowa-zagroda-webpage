@@ -23,7 +23,7 @@ const Background = styled.nav`
     text-align: center;
     list-style: none;
     font-weight: 300;
-    font-size: ${({theme}) => theme.fonts.phone.xl};
+    font-size: ${({theme}) => theme.fonts.phone.l};
   }
 `;
 

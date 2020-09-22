@@ -8,7 +8,9 @@ export const theme = {
     "xs": "2.7rem",
 
     phone: {
-      "xl": "1.85rem"
+      "xl": "2.3rem",
+      "l": "1.85rem",
+      "m": "1.4rem"
     }
   },
   
@@ -16,6 +18,6 @@ export const theme = {
     white: "#FFFFFF",
     main: "#204B38",
     lightMain: "#336646",
-    darkMain: "#204B38"
+    darkMain: "#264431"
   }
 }
