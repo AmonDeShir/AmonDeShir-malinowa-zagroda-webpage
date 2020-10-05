@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-const Container = styled.div`
+export const Container = styled.div`
   width: 100vw;
   height: ${({height}) => height ? height : "180px"};
   background: ${({theme}) => theme.colors.lightMain};
@@ -10,7 +10,7 @@ const Container = styled.div`
   text-align: center;
 `;
 
-const Title = styled.h2`
+export const Title = styled.h2`
   padding: 0;
   margin: 0;
 
@@ -23,7 +23,7 @@ const Title = styled.h2`
   font-size: ${({theme}) => theme.fonts.phone.xl};
 `;
 
-const Text = styled.div`
+export const Text = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

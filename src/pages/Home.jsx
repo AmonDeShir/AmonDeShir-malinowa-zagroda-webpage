@@ -11,7 +11,7 @@ const Home = () => (
     <SmallGallery/>
     <Textblock
       title="O nas"
-      text="Gospodarstwo ekologiczne Malinowa Zagroda powstała w 2005 roku, na początku zajmowaliśmy się uprawą malin i produkcją z niej przetworów. Nasza przygoda z serowarstwem rozpoczeła się w 2008 roku, od wyrobów z mleka koziego. DziimagesselectedImage zajmujy się głównie wyrobami z melka krowiego a wyroby kozie są dostępne tylko sezonowo."
+      text=" Lorem ipsum ac odio consequat wisi. Phasellus a dui. Vestibulum aliquam arcu. Praesent sit amet libero vel wisi. Mauris metus. Etiam varius, nisl dui pulvinar ut, placerat tempor nisl neque vel leo. In euismod id, nunc. Suspendisse eu lorem quam eu pede in dolor. Maecenas quam risus, consequat tortor, dictum aliquet molestie. Vivamus iaculis, diam magna orci mauris sit amet mauris sed luctus."
     />
 
     <Map/>
