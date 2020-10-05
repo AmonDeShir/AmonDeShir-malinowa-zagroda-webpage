@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Conteiner = styled.div`
   position: absolute;
@@ -36,5 +37,14 @@ const Description = ({title, description}) => (
   </Conteiner>
 );
 
+Description.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string
+}
+
+Description.defaultProps = {
+  title: "",
+  description: ""
+}
 
 export default Description;

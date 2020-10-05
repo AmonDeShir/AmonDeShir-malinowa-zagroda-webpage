@@ -2,7 +2,7 @@ import React from "react"
 import CircleButton from "./CircleButton"
 import styled from "styled-components";
 import NElementsArray from "../../../utilities/NElementsArray";
-
+import PropTypes from "prop-types";
 
 const StyledList = styled.ul`
   display: flex;
@@ -17,18 +17,30 @@ const StyledList = styled.ul`
   width: ${({elementsCount}) => `calc(25px * ${elementsCount})`};
 `;
 
-const CircleButtonList = ({elementsCount, selectedElementId, onCircleButtonClickHandler}) => {
+const CircleButtonList = ({elementsCount, selectedElementId, onButtonClick}) => {
   return (
     <StyledList elementsCount={elementsCount}>
       {NElementsArray(elementsCount).map((id) => 
         <CircleButton 
           key={id} 
           selected={id === selectedElementId} 
-          onClick={ () => onCircleButtonClickHandler(id)} 
+          onClick={ () => onButtonClick(id)} 
         />
       )}
     </StyledList>
   )
+}
+
+CircleButtonList.propTypes = {
+  elementsCount: PropTypes.number,
+  selectedElementId: PropTypes.number,
+  onButtonClick: PropTypes.func
+}
+
+CircleButtonList.defaultProps = {
+  elementsCount: 4,
+  selectedElementId: 0,
+  onButtonClick: () => {}
 }
 
 export default CircleButtonList; 

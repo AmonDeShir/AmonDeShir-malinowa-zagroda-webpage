@@ -61,7 +61,7 @@ const SmallGallery = () => {
       <ImageSelector
         imagesCount={images.length}
         selectedImage={selectedImage}
-        onImageSelectorButtonClickedHandler={onImageSelectorButtonClickedHandler}
+        onCircleClick={onImageSelectorButtonClickedHandler}
       ></ImageSelector>
     </Background>
   )

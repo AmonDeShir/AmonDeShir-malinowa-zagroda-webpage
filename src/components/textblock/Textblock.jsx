@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -43,5 +44,17 @@ const Textblock = ({ title, text, height }) => (
     <Text>{text}</Text>
   </Container>
 );
+
+Textblock.propTypes = {
+  title: PropTypes.string,
+  text: PropTypes.string,
+  height: PropTypes.string
+}
+
+Textblock.defaultProps = {
+  title: "",
+  text: "",
+  height: "180px"
+}
 
 export default Textblock;
