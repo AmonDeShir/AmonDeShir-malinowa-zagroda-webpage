@@ -1,5 +1,6 @@
 import React from "react"
 import Header from "../components/header/Header";
+import ListOfProducts from "../components/listOfProducts/ListOfProducts";
 import Map from "../components/map/Map";
 import SmallGallery from "../components/smallGallery/SmallGallery";
 import Textblock from "../components/textblock/Textblock";
@@ -25,6 +26,8 @@ const Home = () => (
       }
       height="120px"
     />
+
+    <ListOfProducts/>
   </>
 );
 
