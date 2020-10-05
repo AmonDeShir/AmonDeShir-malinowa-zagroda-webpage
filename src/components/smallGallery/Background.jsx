@@ -11,6 +11,7 @@ const Background = styled.div`
   background-position: center;
   background-repeat: no-repeat;
 
+  box-shadow: ${({theme}) => theme.shadow.default};
 `;
 
 export default Background;

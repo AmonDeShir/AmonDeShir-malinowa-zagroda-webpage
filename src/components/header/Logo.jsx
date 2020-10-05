@@ -17,7 +17,7 @@ const Background = styled.div`
   align-items: center;
   justify-content: center;
 
-  box-shadow: inset 0px -126px 19px -123px rgba(0,0,0,0.75);
+  box-shadow: ${({theme}) => theme.shadow.default};
 `;
 
 const LogoImage = styled.div`

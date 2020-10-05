@@ -32,7 +32,8 @@ const Text = styled.div`
   font-size: ${({theme}) => theme.fonts.phone.m};
 
   width: 100%;
-  height: calc(100% - 50px - 25px);
+  height: calc(100% - 50px - 25 
+  px);
 `;
 
 const Textblock = ({ title, text, height }) => (
