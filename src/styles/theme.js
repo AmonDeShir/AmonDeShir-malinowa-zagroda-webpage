@@ -19,5 +19,11 @@ export const theme = {
     main: "#204B38",
     lightMain: "#336646",
     darkMain: "#264431"
+  },
+
+  shadow: {
+    default: "inset 0px 4px 4px rgba(0, 0, 0, 0.5), inset 0px -4px 4px rgba(0, 0, 0, 0.5)",
+    top: "0px 4px 4px rgba(0, 0, 0, 0.5)",
+    bottom: "0px -4px 4px rgba(0, 0, 0, 0.5)"
   }
 }
