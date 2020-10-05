@@ -24,6 +24,14 @@ export const theme = {
   shadow: {
     default: "inset 0px 4px 4px rgba(0, 0, 0, 0.5), inset 0px -4px 4px rgba(0, 0, 0, 0.5)",
     top: "0px 4px 4px rgba(0, 0, 0, 0.5)",
-    bottom: "0px -4px 4px rgba(0, 0, 0, 0.5)"
+    bottom: "0px -4px 4px rgba(0, 0, 0, 0.5)",
+
+    topInset: "inset 0px 4px 4px rgba(0, 0, 0, 0.5)",
+    bottomInset: "inset 0px -4px 4px rgba(0, 0, 0, 0.5)",
+
+    less: {
+      topInset: "inset 0px 2px 4px rgba(0, 0, 0, 0.5)",
+      bottomInset: "inset 0px -2px 4px rgba(0, 0, 0, 0.5)"
+    }
   }
 }
