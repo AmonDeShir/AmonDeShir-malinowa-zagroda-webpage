@@ -24,7 +24,7 @@ const Shadow = styled.div`
   position: absolute;
 `;
 
-const ShadowTop = styled(Shadow)`
+export const ShadowTop = styled(Shadow)`
   top: -5px;
   box-shadow: ${({theme}) => theme.shadow.top};
 `;

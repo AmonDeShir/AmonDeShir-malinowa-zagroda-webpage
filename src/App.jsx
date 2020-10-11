@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import SmallGallery from "./components/smallGallery/SmallGallery";
 import Header from "./components/header/Header";
+import Gallery from './pages/Gallery';
 
 
 const App = () => (
@@ -25,7 +26,7 @@ const App = () => (
       </Route>
 
       <Route path="/gallery">
-        <>Elo</>
+        <Gallery />
       </Route>
 
       <Route path="/">

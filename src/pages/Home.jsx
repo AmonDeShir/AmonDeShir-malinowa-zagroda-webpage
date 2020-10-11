@@ -5,8 +5,6 @@ import Textblock from "../components/textblock/Textblock";
 
 const Home = () => (
   <>
-
-
     <div id="about-us">
       <Textblock
         title="O nas"
