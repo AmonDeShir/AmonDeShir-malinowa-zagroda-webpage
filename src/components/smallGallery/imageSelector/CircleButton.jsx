@@ -6,10 +6,10 @@ const CircleButton = styled.li`
   
   margin-right: 5px;
 
-  background-color: ${({theme, selected}) => selected ? theme.colors.lightMain : theme.colors.darkMain};
+  background-color: ${({theme, selected}) => selected ? theme.colors.primary : theme.colors.darkSecond};
   border-radius: 50%;
   border-width: 1.5px;
-  border-color: ${({theme}) => theme.colors.lightMain};
+  border-color: ${({theme}) => theme.colors.primary};
   border-style: solid;
 
   list-style: none;

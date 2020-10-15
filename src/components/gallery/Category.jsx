@@ -11,7 +11,7 @@ const Background = styled.div`
   height: 100px;
 
   padding: 20px 10px 20px 10px;
-  background: ${({ theme }) => theme.colors.main};
+  background: ${({ theme }) => theme.colors.second};
   box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.5);
 
   &:after {
@@ -34,10 +34,10 @@ const StyledSelect = styled.select`
   width: calc(100vw - 20px);
   height: 60px;
 
-  font-size: ${({ theme }) => theme.fonts.phone.xl};
+  font-size: ${({ theme }) => theme.fonts.xl};
   font-weight: 500;
   text-align: center;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
 
   border-width: 0;
   border-radius: 10px;

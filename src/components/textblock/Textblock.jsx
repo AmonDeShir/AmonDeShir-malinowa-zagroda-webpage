@@ -7,7 +7,7 @@ export const Background = styled.div`
   z-index: 1;
   width: 100vw;
   height: ${({ height }) => height ? height : "180px"};
-  background: ${({ theme }) => theme.colors.lightMain};
+  background: ${({ theme }) => theme.colors.second};
   text-align: center;
 
   ${(props) => props.inverShadows ?
@@ -21,7 +21,7 @@ export const Background = styled.div`
   }
 
   @media (min-width: 700px), (orientation: landscape) {
-    background: ${({ theme }) => theme.colors.slightlyDarkMain};
+    background: ${({ theme }) => theme.colors.slightlyDarkSecond};
     height: ${({ height }) => height ? height : "160px"};
   }
 `;
@@ -31,7 +31,7 @@ const Container = styled.div`
   height: 100%;
 
   @media (min-width: 600px), (orientation: landscape) {
-    background: ${({ theme }) => theme.colors.lightMain};
+    background: ${({ theme }) => theme.colors.primary};
     box-shadow: -10px 0px 10px -1px rgba(0, 0, 0, 0.25), 10px 4px 10px -1px rgba(0, 0, 0, 0.25);  
   }
 
@@ -54,7 +54,7 @@ export const Title = styled.h2`
   line-height: 50px;
   font-style: normal;
   font-weight: 300;
-  font-size: ${({ theme }) => theme.fonts.phone.xl};
+  font-size: ${({ theme }) => theme.fonts.xl};
 `;
 
 export const Text = styled.div`
@@ -66,7 +66,7 @@ export const Text = styled.div`
   padding: 0 10px 0 10px;
   font-style: normal;
   font-weight: 300;
-  font-size: ${({ theme }) => theme.fonts.phone.m};
+  font-size: ${({ theme }) => theme.fonts.m};
 `;
 
 const Textblock = ({ title, text, height, inverShadows }) => (

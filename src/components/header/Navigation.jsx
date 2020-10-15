@@ -7,7 +7,7 @@ const Background = styled.nav`
   z-index: 1;
   width: 100vw;
   height: 35px;
-  background: ${({ theme }) => theme.colors.main};
+  background: ${({ theme }) => theme.colors.second};
   box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.5);
 
   ul {
@@ -35,11 +35,11 @@ const Background = styled.nav`
 `;
 
 const StyledLink = styled(Link)`
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
     line-height: 35px;
     text-decoration: none;
     font-weight: 300;
-    font-size: ${({ theme }) => theme.fonts.phone.l};
+    font-size: ${({ theme }) => theme.fonts.l};
     user-select: none;
 
     :hover {
