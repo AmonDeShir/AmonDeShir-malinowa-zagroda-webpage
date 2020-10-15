@@ -6,11 +6,13 @@ import menuIcon from "../../assets/images/gallery/menu2.svg";
 
 const Background = styled.div`
   position: relative;
+  z-index: 1;
   width: 100vw;
   height: 100px;
 
   padding: 20px 10px 20px 10px;
   background: ${({ theme }) => theme.colors.main};
+  box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.5);
 
   &:after {
     position: absolute;
@@ -42,6 +44,8 @@ const StyledSelect = styled.select`
   background: rgba(0, 0, 0, 0.3);
   appearance: none;
 
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1), inset 0px -4px 4px rgba(0, 0, 0, 0.1);
+  
   &:focus {
     outline: none;    
   }
