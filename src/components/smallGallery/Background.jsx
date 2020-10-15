@@ -6,9 +6,12 @@ const Container = styled.div`
   width: 100vw;
   height: 71vw;
 
-  @media (orientation: landscape) {
-    width: 100vw;
+  @media (orientation: landscape) and (min-width: 140.85vmin){
     height: 100vmin;
+  }
+
+  @media (min-width: 600px) {
+    height: 426px;
   }
 `;
 
@@ -24,17 +27,22 @@ const SideImage = styled.div`
   transform: scale(1.05);
   z-index: -1;
 
-  @media (orientation: landscape) {
+  @media (orientation: landscape), (min-width: 600px) {
     display: block;
+  }
 
-    &:after, &:before {
-      display: block;
-    }
+  @media (min-width: 600px) {
+    background-size: 600px 426px;
+    width: calc(50vw - 300px);
   }
 `;
 
 const LeftSideImage = styled(SideImage)`
-  background-position: calc( -140.80 + (50vw - 70.425vmin)) 0;
+  background-position: calc( -140.80vmin + (50vw - 70.425vmin)) 0;
+
+  @media (min-width: 600px) {
+    background-position: calc( -600px + (50vw - 300px)) 0;
+  }
 `;
 
 const Image = styled.div`
@@ -46,11 +54,18 @@ const Image = styled.div`
   background-position: center;
   background-repeat: no-repeat;
 
-  @media (orientation: landscape) {
+  @media (orientation: landscape), (min-width: 600px) {
+    box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.25);  
+  }
+
+  @media (orientation: landscape) and (min-width: 140.85vmin){
     width: 140.85vmin;
     height: 100vmin;
+  }
 
-    box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.25);  
+  @media (min-width: 600px) {
+    width: 600px;
+    height: 426px;
   }
 `;
 

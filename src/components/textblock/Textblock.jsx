@@ -30,11 +30,19 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
 
-  @media (min-width: 700px), (orientation: landscape) {
-    max-width: 140.85vmin;
-    margin-left: calc(50vw - 70.425vmin);
+  @media (min-width: 600px), (orientation: landscape) {
     background: ${({ theme }) => theme.colors.lightMain};
     box-shadow: -10px 0px 10px -1px rgba(0, 0, 0, 0.25), 10px 4px 10px -1px rgba(0, 0, 0, 0.25);  
+  }
+
+  @media (orientation: landscape) and (min-width: 140.85vmin){
+    max-width: 140.85vmin;
+    margin-left: calc(50vw - 70.425vmin);
+  }
+
+  @media (min-width: 600px) {
+    max-width: 600px;
+    margin-left: calc(50vw - 300px);
   }
 `;
 

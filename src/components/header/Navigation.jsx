@@ -16,9 +16,14 @@ const Background = styled.nav`
     padding: 0;
     display: flex;
 
-    @media (orientation: landscape) {
+    @media (orientation: landscape) and (min-width: 140.85vmin){
       max-width: 140.85vmin;
       margin-left: calc(50vw - 70.425vmin);
+    }
+
+    @media (min-width: 600px) {
+      max-width: 600px;
+      margin-left: calc(50vw - 300px);
     }
   }
 
