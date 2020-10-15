@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import propTypes from "prop-types";
 
 const Container = styled.div`
   display: flex;
@@ -79,5 +80,17 @@ const Background = ({ prevImage, image, nextImage, children}) => (
     <SideImage image={nextImage} />
   </Container>
 );
+
+Background.propTypes = {
+  prevImage: propTypes.string,
+  image: propTypes.string,
+  nextImage: propTypes.string
+}
+
+Background.defaultProps = {
+  prevImage: "",
+  image: "",
+  nextImage: ""
+}
 
 export default Background;
