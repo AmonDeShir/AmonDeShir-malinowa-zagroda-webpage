@@ -28,29 +28,29 @@ import FullscreenImage from "../components/gallery/FullscreenImage";
 
 const images = [
   [
-    { id: 0, image: cow1},
-    { id: 1, image: cow2},
-    { id: 2, image: cow3},
-    { id: 3, image: cow4},
-    { id: 4, image: cow5},
-    { id: 5, image: goat1},
-    { id: 6, image: goat2},
-    { id: 7, image: goat3},
-    { id: 8, image: goat4},
-    { id: 9, image: goat5},
-    { id: 10, image: goat6},
-    { id: 11, image: sheep1}
-  ], 
+    { id: 0, image: cow1 },
+    { id: 1, image: cow2 },
+    { id: 2, image: cow3 },
+    { id: 3, image: cow4 },
+    { id: 4, image: cow5 },
+    { id: 5, image: goat1 },
+    { id: 6, image: goat2 },
+    { id: 7, image: goat3 },
+    { id: 8, image: goat4 },
+    { id: 9, image: goat5 },
+    { id: 10, image: goat6 },
+    { id: 11, image: sheep1 }
+  ],
   [
-    { id: 12, image: ripeningChamber1},
-    { id: 13, image: ripeningChamber2},
-    { id: 14, image: ripeningChamber3},
-    { id: 15, image: ripeningChamber4},
-    { id: 16, image: ripeningChamber5},
-    { id: 17, image: work1},
-    { id: 18, image: work2},
-    { id: 19, image: work3},
-    { id: 20, image: work4}
+    { id: 12, image: ripeningChamber1 },
+    { id: 13, image: ripeningChamber2 },
+    { id: 14, image: ripeningChamber3 },
+    { id: 15, image: ripeningChamber4 },
+    { id: 16, image: ripeningChamber5 },
+    { id: 17, image: work1 },
+    { id: 18, image: work2 },
+    { id: 19, image: work3 },
+    { id: 20, image: work4 }
   ]
 ]
 
@@ -80,19 +80,58 @@ const Gallery = () => {
   }
 
   const getFullscreenImage = () => {
-    let id =  imageOnFullscreen;
+    return getImageObjectFormArray(imageOnFullscreen).image;
+  }
 
-    if(id > images[0].length)
-      id -= images[0].length;
+  const getImageObjectFormArray = (id) => {
+    let positionInArray = id;
 
-    return images[category][id].image;
+    if (positionInArray >= images[0].length)
+      positionInArray -= images[0].length;
+
+    return images[category][positionInArray];
+  }
+
+  const showNextImageHandler = () => {
+    setImageOnFullscreenByIdManipulation((prevImageId) => prevImageId + 1);
+  }
+
+  const showPrevImageHandler = () => {
+    setImageOnFullscreenByIdManipulation((prevImageId) => prevImageId - 1);
+  }
+
+  const setImageOnFullscreenByIdManipulation = (idManipulationCallback) => {
+    setImageOnFullscreen((prevImageId) => {
+      const imagesFromCategory = images[category];
+      const firstImageId = imagesFromCategory[0].id;
+      const lastImageId = imagesFromCategory[imagesFromCategory.length - 1].id;
+      const id = idManipulationCallback(prevImageId);
+
+      if (id < firstImageId)
+        return getImageObjectFormArray(lastImageId).id;
+        
+      if (id > lastImageId)
+        return getImageObjectFormArray(firstImageId).id
+
+      return getImageObjectFormArray(id).id;
+    });
+  }
+
+  const closeFullscreenHandler = () => {
+    setShowFullscreen(false);
   }
 
   return (
     <>
-      <Category items={categories} onChange={handleCategoryChange}/>
-      <ImagesGrid images={images[category]} onClick={handleImageClick}/>
-      <FullscreenImage image={getFullscreenImage()} show={showFullscreen}/>
+      <Category items={categories} onChange={handleCategoryChange} />
+      <ImagesGrid images={images[category]} onClick={handleImageClick} />
+      <FullscreenImage
+        image={getFullscreenImage()}
+        show={showFullscreen}
+        onLeftArrowClick={showPrevImageHandler}
+        onRightArrowClick={showNextImageHandler}
+        onCloseButtonClick={closeFullscreenHandler}
+      />
     </>
   );
 }
