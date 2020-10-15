@@ -3,16 +3,23 @@ import { Link } from 'react-router-dom';
 import styled from "styled-components";
 
 const Background = styled.nav`
+  position: relative;
+  z-index: 1;
   width: 100vw;
   height: 35px;
-
   background: ${({ theme }) => theme.colors.main};
+  box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.5);
 
   ul {
     width: 100vw;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     display: flex;
+
+    @media (orientation: landscape) {
+      max-width: 140.85vmin;
+      margin-left: calc(50vw - 70.425vmin);
+    }
   }
 
   li {

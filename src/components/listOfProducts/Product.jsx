@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
-import { Container as TextContainer, Text, Title } from "../textblock/Textblock"
+import { Background as TextContainer, Text, Title } from "../textblock/Textblock"
 
 const Container = styled.div`
   width: 100vw;

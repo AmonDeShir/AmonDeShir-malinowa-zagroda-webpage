@@ -51,8 +51,25 @@ const SmallGallery = () => {
     changeImageAfterFiveSecound();
   }
 
+  const getImage = (idManipulationCallback) => {
+    let id = selectedImage;
+
+    if(!idManipulationCallback)
+      return images[id].image;
+    
+    id = idManipulationCallback(id);
+    
+    if(id < 0)
+      id = images.length - 1;
+    
+    if(id >= images.length)
+      id = 0;
+  
+    return images[id].image;
+  } 
+
   return (
-    <Background image={images[selectedImage].image}>
+    <Background prevImage={getImage((id) => id  + 1)} image={getImage()} nextImage={getImage((id) => id - 1)}>
       <Description 
         title={images[selectedImage].title}
         description={images[selectedImage].description}

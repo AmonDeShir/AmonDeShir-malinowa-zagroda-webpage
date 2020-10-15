@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 import Products from "./Products";
 import TitleBar from "./TitleBar";
 import ToggleButtons from "./ToggleButtons";

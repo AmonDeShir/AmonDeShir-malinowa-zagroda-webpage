@@ -12,8 +12,6 @@ const Bar = styled.div`
   font-weight: 300;
   font-size: ${({theme}) => theme.fonts.phone.xl};
   line-height: 50px;
-
-  box-shadow: ${({theme}) => theme.shadow.less.topInset};
 `;
 
 const TitleBar = () => (

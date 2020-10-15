@@ -17,6 +17,7 @@ export const theme = {
   colors: {
     white: "#FFFFFF",
     main: "#204B38",
+    slightlyDarkMain: "#2A5138",
     lightMain: "#336646",
     darkMain: "#264431"
   },
@@ -31,7 +32,10 @@ export const theme = {
 
     less: {
       topInset: "inset 0px 2px 4px rgba(0, 0, 0, 0.5)",
-      bottomInset: "inset 0px -2px 4px rgba(0, 0, 0, 0.5)"
+      bottomInset: "inset 0px -2px 4px rgba(0, 0, 0, 0.5)",
+
+      top: "0px 2px 4px rgba(0, 0, 0, 0.5)",
+      bottom: "0px -2px 4px rgba(0, 0, 0, 0.5)",
     }
   }
 }

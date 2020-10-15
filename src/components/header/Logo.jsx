@@ -5,7 +5,7 @@ import goat from "../../assets/images/header/goat.jpg";
 import logo from "../../assets/images/logo.svg";
 
 
-const Background = styled.div`
+const Background = styled.div`  
   width: 100vw;
   height: 120px;
 
@@ -16,8 +16,6 @@ const Background = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  box-shadow: ${({theme}) => theme.shadow.default};
 `;
 
 const LogoImage = styled.div`

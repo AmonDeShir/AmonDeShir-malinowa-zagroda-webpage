@@ -17,6 +17,7 @@ const Home = () => (
     <div id="contact">
       <Textblock
         height="120px"
+        inverShadows={true}
         title="Kontakt"
         text={
           <>
