@@ -3,16 +3,28 @@ import { Link } from 'react-router-dom';
 import styled from "styled-components";
 
 const Background = styled.nav`
+  position: relative;
+  z-index: 1;
   width: 100vw;
   height: 35px;
-
-  background: ${({ theme }) => theme.colors.main};
+  background: ${({ theme }) => theme.colors.second};
+  box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.5);
 
   ul {
     width: 100vw;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     display: flex;
+
+    @media (orientation: landscape) and (min-width: 140.85vmin){
+      max-width: 140.85vmin;
+      margin-left: calc(50vw - 70.425vmin);
+    }
+
+    @media (min-width: 600px) {
+      max-width: 600px;
+      margin-left: calc(50vw - 300px);
+    }
   }
 
   li {
@@ -23,11 +35,11 @@ const Background = styled.nav`
 `;
 
 const StyledLink = styled(Link)`
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
     line-height: 35px;
     text-decoration: none;
     font-weight: 300;
-    font-size: ${({ theme }) => theme.fonts.phone.l};
+    font-size: ${({ theme }) => theme.fonts.l};
     user-select: none;
 
     :hover {

@@ -23,12 +23,12 @@ const Background = styled.div`
   justify-content: center;
   align-items: center;
 
-  box-shadow: ${({theme}) => theme.shadow.topInset};
-  background: ${({theme, dark}) => dark ? theme.colors.darkMain : theme.colors.lightMain};
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.5);
+  background: ${({theme, darkSecond}) => darkSecond ? theme.colors.darkSecond : theme.colors.primary};
 `;
 
 const Button = ({clicked, isGoat, onClick}) => (
-  <Background dark={clicked} onClick={onClick}>
+  <Background darkSecond={clicked} onClick={onClick}>
     <Image image={isGoat ? goatIcon : cowIcon}/>
   </Background>
 );

@@ -15,7 +15,7 @@ const Conteiner = styled.div`
 const Title = styled.h2`
   width: 100%;
 
-  font-size: ${({theme}) => theme.fonts.phone.m};
+  font-size: ${({theme}) => theme.fonts.m};
   font-weight: 500;
   text-align: center;
 
@@ -25,7 +25,7 @@ const Title = styled.h2`
 const Text = styled.div`
   width: 100%;
 
-  font-size: ${({theme}) => theme.fonts.phone.xl};
+  font-size: ${({theme}) => theme.fonts.xl};
   font-weight: 500;
   text-align: center;
 `;

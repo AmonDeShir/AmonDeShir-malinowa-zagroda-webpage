@@ -5,15 +5,13 @@ const Bar = styled.div`
   width: 100vw;
   height: 50px;
 
-  background: ${({theme}) => theme.colors.main};
+  background: ${({theme}) => theme.colors.second};
 
   text-align: center;
   font-style: normal;
   font-weight: 300;
-  font-size: ${({theme}) => theme.fonts.phone.xl};
+  font-size: ${({theme}) => theme.fonts.xl};
   line-height: 50px;
-
-  box-shadow: ${({theme}) => theme.shadow.less.topInset};
 `;
 
 const TitleBar = () => (

@@ -6,11 +6,13 @@ import menuIcon from "../../assets/images/gallery/menu2.svg";
 
 const Background = styled.div`
   position: relative;
+  z-index: 1;
   width: 100vw;
   height: 100px;
 
   padding: 20px 10px 20px 10px;
-  background: ${({ theme }) => theme.colors.main};
+  background: ${({ theme }) => theme.colors.second};
+  box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.5);
 
   &:after {
     position: absolute;
@@ -32,16 +34,18 @@ const StyledSelect = styled.select`
   width: calc(100vw - 20px);
   height: 60px;
 
-  font-size: ${({ theme }) => theme.fonts.phone.xl};
+  font-size: ${({ theme }) => theme.fonts.xl};
   font-weight: 500;
   text-align: center;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
 
   border-width: 0;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.3);
   appearance: none;
 
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1), inset 0px -4px 4px rgba(0, 0, 0, 0.1);
+  
   &:focus {
     outline: none;    
   }

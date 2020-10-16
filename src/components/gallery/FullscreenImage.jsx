@@ -5,11 +5,11 @@ import PropTypes from "prop-types"
 import closeIcon from "../../assets/images/gallery/close-button.svg"
 import arrowIcon from "../../assets/images/gallery/menu2.svg";
 
-
 const Background = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 2;
 
   width: 100vw;
   height: 100vh;

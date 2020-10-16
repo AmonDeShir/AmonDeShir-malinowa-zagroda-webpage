@@ -2,31 +2,31 @@ import React from "react";
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
-import { Container as TextContainer, Text, Title } from "../textblock/Textblock"
+import { Background as TextContainer, Text, Title } from "../textblock/Textblock"
 
 const Container = styled.div`
   width: 100vw;
   height: 150px;
-
   display: flex;
+  
+  @media (min-width: 700px), (orientation: landscape) {
+    background: ${({ theme }) => theme.colors.second};
+  }
 `;
 
 const Image = styled.div`
   height: 150px;
   width: 180px;
-
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url(${(props) => props.image});
-
-  box-shadow: ${({theme}) => theme.shadow.topInset};
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.5);
 `;
 
 const StyledTextContainer = styled(TextContainer)`
   width: calc(100vw - 180px);
   height: 150px;
-
-  box-shadow: ${({theme}) => theme.shadow.less.topInset};
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.5);
 `;
 
 const Product = ({ image, name, description }) => (
