@@ -16,6 +16,10 @@ const Background = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: 1000px) {
+    height: 250px;
+  }
 `;
 
 const LogoImage = styled.div`
@@ -24,6 +28,11 @@ const LogoImage = styled.div`
 
   background-image: url("${logo}");
   background-size: cover;
+
+  @media (min-width: 1000px) {
+    width: 350px;
+    height: 147.66px;
+  }
 `;
 
 const Logo = () => (

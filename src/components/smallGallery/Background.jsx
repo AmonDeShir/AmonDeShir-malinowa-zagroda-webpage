@@ -14,6 +14,10 @@ const Container = styled.div`
   @media (min-width: 600px) {
     height: 426px;
   }
+
+  @media (min-width: 1000px) {
+    height: 600px;
+  }
 `;
 
 const SideImage = styled.div`
@@ -21,11 +25,9 @@ const SideImage = styled.div`
   background-image: url(${(props) => props.image});
   background-size: 140.85vmin 100vmin;
   background-repeat: no-repeat;
-  filter: blur(3px);
 
   height: 100%;
   width: calc(50vw - 70.425vmin);
-  transform: scale(1.05);
   z-index: -1;
 
   @media (orientation: landscape), (min-width: 600px) {
@@ -36,6 +38,11 @@ const SideImage = styled.div`
     background-size: 600px 426px;
     width: calc(50vw - 300px);
   }
+
+  @media (min-width: 1000px) {
+    background-size: 845px 600px;
+    width: calc(50vw - 422.5px);
+  }
 `;
 
 const LeftSideImage = styled(SideImage)`
@@ -43,6 +50,10 @@ const LeftSideImage = styled(SideImage)`
 
   @media (min-width: 600px) {
     background-position: calc( -600px + (50vw - 300px)) 0;
+  }
+
+  @media (min-width: 1000px) {
+    background-position: calc( -845px + (50vw - 300px)) 0;
   }
 `;
 
@@ -68,8 +79,12 @@ const Image = styled.div`
     width: 600px;
     height: 426px;
   }
-`;
 
+  @media (min-width: 1000px) {
+    height: 600px;
+    width: 845px;
+  }
+`;
 
 const Background = ({ prevImage, image, nextImage, children}) => (
   <Container>

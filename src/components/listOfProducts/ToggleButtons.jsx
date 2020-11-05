@@ -6,6 +6,10 @@ import Button from "./Button";
 const Container = styled.div`
   width: 100vw;
   display: flex;
+
+  @media (min-width: 900px) {
+    display: none;
+  }
 `;
 
 const ToggleButtons = ({isGoatButtonClicked, onButtonClick}) => (

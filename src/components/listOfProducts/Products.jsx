@@ -6,6 +6,15 @@ import Product from "./Product"
 
 const Container = styled.div`
   width: 100vw;
+
+  @media (min-width: 600px) {
+    background: ${({ theme }) => theme.colors.slightlyDarkSecond};
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (min-width: 900px) {
+    display: none;
+  }
 `;
 
 const Products = ({ products }) => {

@@ -14,6 +14,7 @@ const Grid = styled.div`
 const Image = styled.img`
   width: 33.33vw;
   height: 23.73vw;
+  object-fit: cover;
 `;
 
 const ImagesGrid = ({ images, onClick }) => (

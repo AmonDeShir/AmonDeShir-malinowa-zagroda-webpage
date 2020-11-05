@@ -4,15 +4,28 @@ import PropTypes from "prop-types";
 
 import menuIcon from "../../assets/images/gallery/menu2.svg";
 
+
+
 const Background = styled.div`
   position: relative;
   z-index: 1;
   width: 100vw;
   height: 100px;
+  box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.5);
+
+  @media (min-width: 700px), (orientation: landscape) {
+    background: ${({ theme }) => theme.colors.slightlyDarkSecond};
+  }
+`;
+
+const Container = styled.div`
+  position: relative;
+
+  width: 100%;
+  height: 100%;
 
   padding: 20px 10px 20px 10px;
   background: ${({ theme }) => theme.colors.second};
-  box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.5);
 
   &:after {
     position: absolute;
@@ -28,10 +41,32 @@ const Background = styled.div`
     top: 35px;
     right: 35px; 
   }
+
+  @media (min-width: 600px), (orientation: landscape) {
+    background: ${({ theme }) => theme.colors.primary};
+    box-shadow: -10px 0px 10px -1px rgba(0, 0, 0, 0.25), 10px 4px 10px -1px rgba(0, 0, 0, 0.25);  
+  }
+
+  @media (orientation: landscape) and (min-width: 140.85vmin){
+    max-width: 140.85vmin;
+    margin-left: calc(50vw - 70.425vmin);
+    padding: 20px;
+  }
+
+  @media (min-width: 600px) {
+    max-width: 600px;
+    margin-left: calc(50vw - 300px);
+    padding: 20px;
+  }
+
+  @media (min-width: 1000px) {
+    max-width: 845px;
+    margin-left: calc(50vw - 422.5px);
+  }
 `;
 
 const StyledSelect = styled.select`
-  width: calc(100vw - 20px);
+  width: 100%;
   height: 60px;
 
   font-size: ${({ theme }) => theme.fonts.xl};
@@ -51,9 +86,9 @@ const StyledSelect = styled.select`
   }
 `;
 
-const Category = ({items, onChange}) => {
+const Category = ({ items, onChange }) => {
   const [value, setValue] = useState(0)
-  
+
   const handleChange = (event) => {
     const value = event.target.value;
 
@@ -63,11 +98,13 @@ const Category = ({items, onChange}) => {
 
   return (
     <Background>
-      <StyledSelect value={value} onChange={handleChange}>
-        {items.map(({id, value}) =>  
-          <option key={id} value={id}>{value}</option>
-        )}
-      </StyledSelect>
+      <Container>
+        <StyledSelect value={value} onChange={handleChange}>
+          {items.map(({ id, value }) =>
+            <option key={id} value={id}>{value}</option>
+          )}
+        </StyledSelect>
+      </Container>
     </Background>
   )
 };
@@ -82,7 +119,7 @@ Category.propTypes = {
 
 Category.defaultProps = {
   items: [],
-  onChange: () => {}
+  onChange: () => { }
 }
 
 export default Category;

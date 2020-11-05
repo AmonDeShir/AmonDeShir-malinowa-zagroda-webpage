@@ -6,6 +6,11 @@ const StyledIFrame = styled(Iframe)`
   width: 100vw;
   height: 100vmin;
   border-width: 0px;
+
+  @media (min-width: 1000px) {
+    height: calc(100vh - 120px);
+  }
+
 `;
 
 const Map = () => (

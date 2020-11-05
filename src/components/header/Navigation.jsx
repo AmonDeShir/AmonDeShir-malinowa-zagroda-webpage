@@ -10,6 +10,10 @@ const Background = styled.nav`
   background: ${({ theme }) => theme.colors.second};
   box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.5);
 
+ @media (min-width: 1000px) {
+    height: 55px;
+  } 
+
   ul {
     width: 100vw;
     margin: 0;
@@ -25,12 +29,21 @@ const Background = styled.nav`
       max-width: 600px;
       margin-left: calc(50vw - 300px);
     }
+
+    @media (min-width: 1000px) {
+      max-width: 845px;
+      margin-left: calc(50% - 422.5px);
+    }
   }
 
   li {
     flex: 1;
     list-style: none;
     text-align: center;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.darkSecond};
+    }
   }
 `;
 
@@ -41,6 +54,11 @@ const StyledLink = styled(Link)`
     font-weight: 300;
     font-size: ${({ theme }) => theme.fonts.l};
     user-select: none;
+
+    @media (min-width: 1000px) {
+      line-height: 55px;
+      font-size: ${({ theme }) => theme.fonts.xl};
+    } 
 
     :hover {
       cursor: pointer;
