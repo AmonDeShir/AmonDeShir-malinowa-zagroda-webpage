@@ -1,8 +1,8 @@
 import React from "react"
-import CircleButton from "./CircleButton"
 import styled from "styled-components";
-import NElementsArray from "../../../utilities/NElementsArray";
 import PropTypes from "prop-types";
+import CircleButton from "./CircleButton"
+import NElementsArray from "../../../utilities/NElementsArray";
 
 const StyledList = styled.ul`
   display: flex;

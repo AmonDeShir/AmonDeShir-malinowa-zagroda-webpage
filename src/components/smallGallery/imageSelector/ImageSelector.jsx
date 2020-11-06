@@ -1,17 +1,14 @@
 import React from "react"
-import CircleButtonList from "./CircleButtonList"
 import PropTypes from "prop-types";
+import CircleButtonList from "./CircleButtonList"
 
-const ImageSelector = ({imagesCount, selectedImage, onCircleClick}) => {  
-
-  return (
-    <CircleButtonList 
-      elementsCount={imagesCount} 
-      selectedElementId={selectedImage}
-      onButtonClick={onCircleClick}
-    ></CircleButtonList>
-  )
-}
+const ImageSelector = ({ imagesCount, selectedImage, onCircleClick }) => (
+  <CircleButtonList
+    elementsCount={imagesCount}
+    selectedElementId={selectedImage}
+    onButtonClick={onCircleClick}
+  />
+)
 
 ImageSelector.propTypes = {
   imagesCount: PropTypes.number,
@@ -22,7 +19,7 @@ ImageSelector.propTypes = {
 ImageSelector.defaultProps = {
   imagesCount: 4,
   selectedImage: 0,
-  onCircleClick: () => {}
+  onCircleClick: () => { }
 }
 
 export default ImageSelector;  

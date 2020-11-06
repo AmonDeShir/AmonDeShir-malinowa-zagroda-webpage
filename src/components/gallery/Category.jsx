@@ -90,18 +90,18 @@ const Category = ({ items, onChange }) => {
   const [value, setValue] = useState(0)
 
   const handleChange = (event) => {
-    const value = event.target.value;
+    const newValue = event.target.value;
 
-    setValue(value);
-    onChange(value);
+    setValue(newValue);
+    onChange(newValue);
   }
 
   return (
     <Background>
       <Container>
         <StyledSelect value={value} onChange={handleChange}>
-          {items.map(({ id, value }) =>
-            <option key={id} value={id}>{value}</option>
+          {items.map((item) =>
+            <option key={item.id} value={item.id}>{item.value}</option>
           )}
         </StyledSelect>
       </Container>

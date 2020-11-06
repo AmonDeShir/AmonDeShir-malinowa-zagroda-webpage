@@ -1,8 +1,8 @@
 import React from "react";
 import styled, {css} from "styled-components";
 
-import goatIcon from "./../../assets/images/listOfProducts/goatIcon.svg"
-import cowIcon from "./../../assets/images/listOfProducts/cowIcon.svg"
+import goatIcon from "../../assets/images/listOfProducts/goatIcon.svg"
+import cowIcon from "../../assets/images/listOfProducts/cowIcon.svg"
 
 
 const Bar = styled.div`

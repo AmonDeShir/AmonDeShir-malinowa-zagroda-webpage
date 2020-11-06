@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import goatIcon from "./../../assets/images/listOfProducts/goatIcon.svg"
-import cowIcon from "./../../assets/images/listOfProducts/cowIcon.svg"
+import goatIcon from "../../assets/images/listOfProducts/goatIcon.svg"
+import cowIcon from "../../assets/images/listOfProducts/cowIcon.svg"
 
 const Image = styled.div`
   width: 160px;

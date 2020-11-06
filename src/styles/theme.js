@@ -1,4 +1,4 @@
-export const theme = {
+const theme = {
   fontFamily: "roboto",
   fonts: {
     "xl": "2.3rem",
@@ -15,3 +15,5 @@ export const theme = {
     white: "#FFFFFF",
   }
 }
+
+export default theme;

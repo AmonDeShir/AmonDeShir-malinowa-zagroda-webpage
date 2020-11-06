@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
   display: flex;
@@ -86,7 +86,7 @@ const Image = styled.div`
   }
 `;
 
-const Background = ({ prevImage, image, nextImage, children}) => (
+const Background = ({ prevImage, image, nextImage, children }) => (
   <Container>
     <LeftSideImage image={prevImage} />
     <Image image={image}>
@@ -97,9 +97,13 @@ const Background = ({ prevImage, image, nextImage, children}) => (
 );
 
 Background.propTypes = {
-  prevImage: propTypes.string,
-  image: propTypes.string,
-  nextImage: propTypes.string
+  prevImage: PropTypes.string,
+  image: PropTypes.string,
+  nextImage: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
 }
 
 Background.defaultProps = {

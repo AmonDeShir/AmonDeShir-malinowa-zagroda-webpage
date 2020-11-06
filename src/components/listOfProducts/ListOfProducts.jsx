@@ -3,7 +3,7 @@ import Products from "./Products";
 import TitleBar from "./TitleBar";
 import ToggleButtons from "./ToggleButtons";
 
-import cheeseImage from "./../../assets/images/listOfProducts/product.svg"
+import cheeseImage from "../../assets/images/listOfProducts/product.svg"
 import TableOfProducts from "./TableOfProducts";
 
 const products = {

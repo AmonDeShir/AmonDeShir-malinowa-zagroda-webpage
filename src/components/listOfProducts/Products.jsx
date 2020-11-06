@@ -32,7 +32,7 @@ const Products = ({ products }) => {
   );
 }
 
-Product.propTypes = {
+Products.propTypes = {
   products: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
@@ -41,7 +41,7 @@ Product.propTypes = {
   }))
 }
 
-Product.defaultProps = {
+Products.defaultProps = {
   products: []
 }
 

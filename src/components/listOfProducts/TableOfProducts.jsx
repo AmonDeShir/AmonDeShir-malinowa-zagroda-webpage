@@ -30,7 +30,7 @@ const Background = styled.div`
 `;
 
 const mixCategories = (categoryOne, categoryTwo) => {
-  let result = [];
+  const result = [];
   const maxLenght = Math.max(categoryOne.length, categoryTwo.length);
 
   for(let i = 0; i < maxLenght; i++){

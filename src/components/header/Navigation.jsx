@@ -83,8 +83,6 @@ const Navigation = () => {
       scrollTo(id);
     else
       scrollTo(id, true);
-
-    console.log("done!");
   }
 
   const scrollTo = (selector, top) => {
@@ -104,7 +102,7 @@ const Navigation = () => {
     let deltaHeight = window.innerHeight - rect.bottom;
 
     if (deltaHeight < 0)
-      deltaHeight = deltaHeight * -1;
+      deltaHeight *= -1;
 
     window.scrollTo(window.scrollX, deltaHeight)
   }

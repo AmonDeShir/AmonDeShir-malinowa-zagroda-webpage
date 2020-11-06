@@ -103,6 +103,8 @@ Textblock.propTypes = {
 Textblock.defaultProps = {
   title: "",
   small: false,
+  text: "",
+  inverShadows: false
 }
 
 export default Textblock;

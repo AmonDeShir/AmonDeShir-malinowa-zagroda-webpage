@@ -29,13 +29,14 @@ ImagesGrid.propTypes = {
   images: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     image: PropTypes.string,
-    onClick: PropTypes.func
-  }))
+  })),
+  
+  onClick: PropTypes.func
 }
 
 ImagesGrid.defaultProps = {
   images: [],
-  onClick: () => { }
+  onClick: () => {}
 }
 
 export default ImagesGrid;

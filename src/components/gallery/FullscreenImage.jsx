@@ -73,11 +73,17 @@ const FullscreenImage = ({ image, show, onLeftArrowClick, onRightArrowClick, onC
 FullscreenImage.propTypes = {
   image: PropTypes.string,
   show: PropTypes.bool,
+  onLeftArrowClick: PropTypes.func,
+  onRightArrowClick: PropTypes.func,
+  onCloseButtonClick: PropTypes.func
 }
 
 FullscreenImage.defaultProps = {
   image: "",
   show: false,
+  onLeftArrowClick: () => {},
+  onRightArrowClick: () => {},
+  onCloseButtonClick: () => {}
 }
 
 export default FullscreenImage;
