@@ -1,4 +1,6 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
+import { useDrag } from "react-use-gesture";
+import useWindowEvent from "../utilities/useWindowEvent";
 import Category from "../components/gallery/Category";
 import ImagesGrid from "../components/gallery/ImagesGrid";
 
@@ -67,30 +69,49 @@ const categories = [
 
 const Gallery = () => {
   const [category, setCategory] = useState(0)
-  const [showFullscreen, setShowFullscreen] = useState(false)
+  const [isFullscreenDisplayed, setIsFullscreenDisplayed] = useState(false)
   const [imageOnFullscreen, setImageOnFullscreen] = useState(0)
 
-  const handleCategoryChange = (value) => {
-    setCategory(Number(value))
-  };
+  const gesturesEvents = useDrag((state) => {
+    const [move] = state.vxvy;
 
-  const handleImageClick = (image) => {
-    setImageOnFullscreen(image);
-    setShowFullscreen(true);
-  }
+    const minMoveForceToShowNextImage = -0.5;
+    const minMOveForceToShowPrevImage = 0.5;
 
-  const getFullscreenImage = () => {
-    return getImageObjectFormArray(imageOnFullscreen).image;
-  }
+    if (!isFullscreenDisplayed){
+      state.cancel();
+      return;
+    }
 
-  const getImageObjectFormArray = (id) => {
-    let positionInArray = id;
+    if (move <= minMoveForceToShowNextImage){
+      showNextImageHandler();
+      state.cancel();
+    }
 
-    if (positionInArray >= images[0].length)
-      positionInArray -= images[0].length;
+    if (move >= minMOveForceToShowPrevImage){
+      showPrevImageHandler();
+      state.cancel();
+    }
+  });
 
-    return images[category][positionInArray];
-  }
+  useWindowEvent("keydown", (event) => {
+    const key = event.code;
+    const nextImageKeyCode = "ArrowLeft";
+    const prevImageKeyCode = "ArrowRight";
+    const closeFullScreenKeyCode = "Escape";
+
+    if (!isFullscreenDisplayed)
+      return;
+
+    if (key === nextImageKeyCode)
+      showNextImageHandler();
+
+    if (key === prevImageKeyCode)
+      showPrevImageHandler();
+
+    if (key === closeFullScreenKeyCode)
+      closeFullscreenHandler();
+  });
 
   const showNextImageHandler = () => {
     setImageOnFullscreenByIdManipulation((prevImageId) => prevImageId + 1);
@@ -109,7 +130,7 @@ const Gallery = () => {
 
       if (id < firstImageId)
         return getImageObjectFormArray(lastImageId).id;
-        
+
       if (id > lastImageId)
         return getImageObjectFormArray(firstImageId).id
 
@@ -117,8 +138,30 @@ const Gallery = () => {
     });
   }
 
+  const getImageObjectFormArray = (id) => {
+    let positionInArray = id;
+
+    if (positionInArray >= images[0].length)
+      positionInArray -= images[0].length;
+
+    return images[category][positionInArray];
+  }
+
   const closeFullscreenHandler = () => {
-    setShowFullscreen(false);
+    setIsFullscreenDisplayed(false);
+  }
+
+  const handleCategoryChange = (value) => {
+    setCategory(Number(value))
+  };
+
+  const handleImageClick = (image) => {
+    setImageOnFullscreen(image);
+    setIsFullscreenDisplayed(true);
+  }
+
+  const getFullscreenImage = () => {
+    return getImageObjectFormArray(imageOnFullscreen).image;
   }
 
   return (
@@ -127,10 +170,11 @@ const Gallery = () => {
       <ImagesGrid images={images[category]} onClick={handleImageClick} />
       <FullscreenImage
         image={getFullscreenImage()}
-        show={showFullscreen}
+        show={isFullscreenDisplayed}
         onLeftArrowClick={showPrevImageHandler}
         onRightArrowClick={showNextImageHandler}
         onCloseButtonClick={closeFullscreenHandler}
+        onPointerDown={gesturesEvents().onPointerDown}
       />
     </>
   );

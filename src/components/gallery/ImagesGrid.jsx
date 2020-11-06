@@ -7,13 +7,13 @@ const Grid = styled.div`
   width: 100vw;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
   background-color: blue;
 `;
 
 const Image = styled.img`
   width: 33.33vw;
   height: 23.73vw;
+  object-fit: cover;
 `;
 
 const ImagesGrid = ({ images, onClick }) => (
@@ -28,13 +28,14 @@ ImagesGrid.propTypes = {
   images: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     image: PropTypes.string,
-    onClick: PropTypes.func
-  }))
+  })),
+  
+  onClick: PropTypes.func
 }
 
 ImagesGrid.defaultProps = {
   images: [],
-  onClick: () => { }
+  onClick: () => {}
 }
 
 export default ImagesGrid;

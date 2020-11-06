@@ -5,10 +5,12 @@ import styled, { css } from "styled-components";
 export const Background = styled.div`
   position: relative;
   z-index: 1;
+
   width: 100vw;
-  height: ${({ height }) => height ? height : "180px"};
-  background: ${({ theme }) => theme.colors.second};
+  height: ${({ small }) => small ? "120px" : "200px"};
+
   text-align: center;
+  background: ${({ theme }) => theme.colors.primary};
 
   ${(props) => props.inverShadows ?
     css`box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.5), 0px 2px 4px rgba(0, 0, 0, 0.5);`
@@ -16,19 +18,25 @@ export const Background = styled.div`
     css`box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5), 0px -2px 4px rgba(0, 0, 0, 0.5);`
   };
 
-  @media (max-width: 375px) and (orientation: portrait) {
-    height: ${({ height }) => height ? height : "200px"};
-  }
-
   @media (min-width: 700px), (orientation: landscape) {
     background: ${({ theme }) => theme.colors.slightlyDarkSecond};
-    height: ${({ height }) => height ? height : "160px"};
+    height: ${({ small }) => small ? "120px" : "150px"};
   }
+
+  @media (min-width: 1000px) {
+    height: ${({ small }) => small ? "150px" : "200px"};
+  }
+
 `;
 
 const Container = styled.div`
   width: 100%;
   height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
 
   @media (min-width: 600px), (orientation: landscape) {
     background: ${({ theme }) => theme.colors.primary};
@@ -44,13 +52,20 @@ const Container = styled.div`
     max-width: 600px;
     margin-left: calc(50vw - 300px);
   }
+
+  @media (min-width: 1000px) {
+    max-width: 845px;
+    margin-left: calc(50vw - 422.5px);
+  }
 `;
 
 export const Title = styled.h2`
-  padding: 0;
-  margin: 0;
   height: 50px;
   width: 100%;
+
+  padding: 0;
+  margin: 0;
+
   line-height: 50px;
   font-style: normal;
   font-weight: 300;
@@ -58,36 +73,45 @@ export const Title = styled.h2`
 `;
 
 export const Text = styled.div`
+  width: 100%;
+  height: calc(100% - 50px - 10px);
+  padding: 0 20px 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: calc(100% - 50px - 25px);
-  padding: 0 10px 0 10px;
+
   font-style: normal;
   font-weight: 300;
   font-size: ${({ theme }) => theme.fonts.m};
+
+  @media (min-width: 1000px) {
+    padding: 0 50px 0;
+    height: ${({small}) => small ? "calc(100% - 50px - 25px)" : "calc(100% - 50px - 35px)"};
+  }
 `;
 
-const Textblock = ({ title, text, height, inverShadows }) => (
-  <Background inverShadows={inverShadows} height={height}>
+const Textblock = ({ title, text, small, inverShadows }) => (
+  <Background inverShadows={inverShadows} small={small}>
     <Container>
       <Title>{title}</Title>
-      <Text>{text}</Text>
+      <Text small={small}>{text}</Text>
     </Container>
   </Background>
 );
 
 Textblock.propTypes = {
   title: PropTypes.string,
-  text: PropTypes.string,
-  height: PropTypes.string,
+  text: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  small: PropTypes.bool,
   inverShadows: PropTypes.bool
 }
 
 Textblock.defaultProps = {
   title: "",
+  small: false,
   text: "",
+  inverShadows: false
 }
 
 export default Textblock;

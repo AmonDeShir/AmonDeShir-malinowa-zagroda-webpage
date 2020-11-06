@@ -3,7 +3,8 @@ import Products from "./Products";
 import TitleBar from "./TitleBar";
 import ToggleButtons from "./ToggleButtons";
 
-import cheeseImage from "./../../assets/images/listOfProducts/product.svg"
+import cheeseImage from "../../assets/images/listOfProducts/product.svg"
+import TableOfProducts from "./TableOfProducts";
 
 const products = {
   goat: [
@@ -51,7 +52,6 @@ const products = {
 
 const ListOfProducts = () => {
   const [isProductsTypeGoat, setIsProductsTypeGoat] = useState(true)
-
   const handleToggleProductsType = () => setIsProductsTypeGoat(state => !state);
 
   return (
@@ -64,6 +64,11 @@ const ListOfProducts = () => {
 
       <Products
         products={isProductsTypeGoat ? products.goat : products.cow}
+      />
+
+      <TableOfProducts 
+        categoryOne={products.cow}
+        categoryTwo={products.goat}
       />
     </>
   );
