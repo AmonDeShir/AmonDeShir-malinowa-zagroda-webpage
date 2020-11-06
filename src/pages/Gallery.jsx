@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import useWindowEvent from "../utilities/useWindowEvent";
 import Category from "../components/gallery/Category";
 import ImagesGrid from "../components/gallery/ImagesGrid";
 
@@ -67,29 +68,26 @@ const categories = [
 
 const Gallery = () => {
   const [category, setCategory] = useState(0)
-  const [showFullscreen, setShowFullscreen] = useState(false)
+  const [isFullscreenDisplayed, setIsFullscreenDisplayed] = useState(false)
   const [imageOnFullscreen, setImageOnFullscreen] = useState(0)
 
-  const handleCategoryChange = (value) => {
-    setCategory(Number(value))
-  };
+  const keyboardNavigationHandler = (event) => {
+    const key = event.code;
+    const nextImageKeyCode = "ArrowLeft";
+    const prevImageKeyCode = "ArrowRight";
+    const closeFullScreenKeyCode = "Escape";
 
-  const handleImageClick = (image) => {
-    setImageOnFullscreen(image);
-    setShowFullscreen(true);
-  }
+    if (!isFullscreenDisplayed)
+      return;
+    
+    if (key === nextImageKeyCode)
+      showNextImageHandler();
 
-  const getFullscreenImage = () => {
-    return getImageObjectFormArray(imageOnFullscreen).image;
-  }
+    if (key === prevImageKeyCode)
+      showPrevImageHandler();
 
-  const getImageObjectFormArray = (id) => {
-    let positionInArray = id;
-
-    if (positionInArray >= images[0].length)
-      positionInArray -= images[0].length;
-
-    return images[category][positionInArray];
+    if (key === closeFullScreenKeyCode)
+      closeFullscreenHandler();
   }
 
   const showNextImageHandler = () => {
@@ -109,7 +107,7 @@ const Gallery = () => {
 
       if (id < firstImageId)
         return getImageObjectFormArray(lastImageId).id;
-        
+
       if (id > lastImageId)
         return getImageObjectFormArray(firstImageId).id
 
@@ -117,9 +115,33 @@ const Gallery = () => {
     });
   }
 
-  const closeFullscreenHandler = () => {
-    setShowFullscreen(false);
+  const getImageObjectFormArray = (id) => {
+    let positionInArray = id;
+
+    if (positionInArray >= images[0].length)
+      positionInArray -= images[0].length;
+
+    return images[category][positionInArray];
   }
+
+  const closeFullscreenHandler = () => {
+    setIsFullscreenDisplayed(false);
+  }
+
+  const handleCategoryChange = (value) => {
+    setCategory(Number(value))
+  };
+
+  const handleImageClick = (image) => {
+    setImageOnFullscreen(image);
+    setIsFullscreenDisplayed(true);
+  }
+
+  const getFullscreenImage = () => {
+    return getImageObjectFormArray(imageOnFullscreen).image;
+  }
+
+  useWindowEvent("keydown", keyboardNavigationHandler);
 
   return (
     <>
@@ -127,7 +149,7 @@ const Gallery = () => {
       <ImagesGrid images={images[category]} onClick={handleImageClick} />
       <FullscreenImage
         image={getFullscreenImage()}
-        show={showFullscreen}
+        show={isFullscreenDisplayed}
         onLeftArrowClick={showPrevImageHandler}
         onRightArrowClick={showNextImageHandler}
         onCloseButtonClick={closeFullscreenHandler}

@@ -53,13 +53,13 @@ const CloseButton = styled(Icon)`
   background-image: url(${closeIcon});
 `;
 
-const FullscreenImage = ({ image, show, onLeftArrowClick, onRightArrowClick, onCloseButtonClick }) => {
+const FullscreenImage = ({ image, show, onLeftArrowClick, onRightArrowClick, onCloseButtonClick}) => {
   return show ? (
     <Background>
-      <img alt=" " src={image} />
+      <img alt=" " src={image}  />
       <LeftArrow onClick={onLeftArrowClick} />
       <RightArrow onClick={onRightArrowClick} />
-      <CloseButton onClick={onCloseButtonClick} />
+      <CloseButton onClick={onCloseButtonClick}/>
     </Background>
   ) : (
     <></>
@@ -71,7 +71,7 @@ FullscreenImage.propTypes = {
   show: PropTypes.bool,
   onLeftArrowClick: PropTypes.func,
   onRightArrowClick: PropTypes.func,
-  onCloseButtonClick: PropTypes.func
+  onCloseButtonClick: PropTypes.func,
 }
 
 FullscreenImage.defaultProps = {
@@ -79,7 +79,7 @@ FullscreenImage.defaultProps = {
   show: false,
   onLeftArrowClick: () => {},
   onRightArrowClick: () => {},
-  onCloseButtonClick: () => {}
+  onCloseButtonClick: () => {},
 }
 
 export default FullscreenImage;
