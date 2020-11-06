@@ -20,26 +20,19 @@ const Background = styled.div`
 
 const Container = styled.div`
   position: relative;
-
   width: 100%;
   height: 100%;
-
   padding: 20px 10px 20px 10px;
   background: ${({ theme }) => theme.colors.second};
 
   &:after {
-    position: absolute;
     content: " ";
-
+    position: absolute;
     height: 30px;
     width: 30px;
-
-    background-image: url(${menuIcon});
-    background-repeat: no-repeat;
-    background-size: cover;
-
     top: 35px;
     right: 35px; 
+    background: center / cover no-repeat url(${menuIcon});
   }
 
   @media (min-width: 600px), (orientation: landscape) {
@@ -69,15 +62,15 @@ const StyledSelect = styled.select`
   width: 100%;
   height: 60px;
 
-  font-size: ${({ theme }) => theme.fonts.xl};
-  font-weight: 500;
-  text-align: center;
-  color: ${({ theme }) => theme.colors.white};
-
   border-width: 0;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.3);
   appearance: none;
+
+  font-size: ${({ theme }) => theme.fonts.xl};
+  font-weight: 500;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.white};
 
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1), inset 0px -4px 4px rgba(0, 0, 0, 0.1);
   
@@ -90,10 +83,10 @@ const Category = ({ items, onChange }) => {
   const [value, setValue] = useState(0)
 
   const handleChange = (event) => {
-    const newValue = event.target.value;
+    const newCategory = event.target.value;
 
-    setValue(newValue);
-    onChange(newValue);
+    setValue(newCategory);
+    onChange(newCategory);
   }
 
   return (

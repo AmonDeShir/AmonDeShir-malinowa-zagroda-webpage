@@ -14,12 +14,11 @@ const Conteiner = styled.div`
 
 const Title = styled.h2`
   width: 100%;
+  margin: 0 0 5px 0;
 
   font-size: ${({theme}) => theme.fonts.m};
   font-weight: 500;
   text-align: center;
-
-  margin: 0 0 5px 0;
 `;
 
 const Text = styled.div`

@@ -52,7 +52,6 @@ const products = {
 
 const ListOfProducts = () => {
   const [isProductsTypeGoat, setIsProductsTypeGoat] = useState(true)
-
   const handleToggleProductsType = () => setIsProductsTypeGoat(state => !state);
 
   return (

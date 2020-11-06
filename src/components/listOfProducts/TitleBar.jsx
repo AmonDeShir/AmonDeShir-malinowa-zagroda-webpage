@@ -9,14 +9,13 @@ const Bar = styled.div`
   width: 100vw;
   height: 50px;
 
-  background: ${({ theme }) => theme.colors.second};
-
   text-align: center;
   font-style: normal;
   font-weight: 300;
   font-size: ${({ theme }) => theme.fonts.xl};
-  
   line-height: 50px;
+
+  background: ${({ theme }) => theme.colors.second};
 
   @media (min-width: 900px) {
    height: 70px;
@@ -47,12 +46,9 @@ const Container = styled.div`
 const Icon = styled.div`
   width: 40px;
   height: 40px;
-
-  background-image: url(${(props) => props.icon});
-  background-repeat: no-repeat;
-  background-size: cover;
-
   margin: 10px;
+
+  background: center / cover no-repeat url(${(props) => props.icon});  
 `;
 
 const TextIcon = styled.div`
@@ -63,6 +59,7 @@ const TextIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
   font-weight: 300;
   font-size: ${({ theme }) => theme.fonts.l};
 

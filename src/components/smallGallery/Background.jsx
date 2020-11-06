@@ -22,13 +22,9 @@ const Container = styled.div`
 
 const SideImage = styled.div`
   display: none;
-  background-image: url(${(props) => props.image});
-  background-size: 140.85vmin 100vmin;
-  background-repeat: no-repeat;
-
   height: 100%;
   width: calc(50vw - 70.425vmin);
-  z-index: -1;
+  background: center / 140.85vmin 100vmin no-repeat url(${(props) => props.image});
 
   @media (orientation: landscape), (min-width: 600px) {
     display: block;
@@ -61,10 +57,8 @@ const Image = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  background-image: url(${(props) => props.image});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: center / cover no-repeat url(${(props) => props.image});
+
 
   @media (orientation: landscape), (min-width: 600px) {
     box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.25);  

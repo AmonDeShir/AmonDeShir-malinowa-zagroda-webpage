@@ -7,7 +7,6 @@ const Grid = styled.div`
   width: 100vw;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
   background-color: blue;
 `;
 

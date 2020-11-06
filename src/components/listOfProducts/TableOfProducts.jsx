@@ -6,20 +6,21 @@ import Product from "./Product"
 
 const Background = styled.div`
   display: none;
-  width: 100vw;
-  background:  ${({theme}) => theme.colors.darkSecond};
   position: relative;
   z-index: -1;
 
-  grid-template-columns: calc(50vw - 22.5px) calc(50vw - 22.5px);
-  column-gap: 15px;
-  row-gap: 15px;
-
+  width: 100vw;
   padding: 15px 0 15px 15px;
+  
+  background:  ${({theme}) => theme.colors.darkSecond};
   box-shadow: inset 0px 2px 4px rgba(0,0,0,0.5);
 
   @media (min-width: 900px) {
     display: grid;
+    grid-template-columns: calc(50vw - 22.5px) calc(50vw - 22.5px);
+    column-gap: 15px;
+    row-gap: 15px;
+  
     background:  ${({theme}) => theme.colors.darkSecond};
   }
 

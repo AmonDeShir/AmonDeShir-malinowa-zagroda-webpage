@@ -5,10 +5,12 @@ import styled, { css } from "styled-components";
 export const Background = styled.div`
   position: relative;
   z-index: 1;
+
   width: 100vw;
   height: ${({ small }) => small ? "120px" : "200px"};
-  background: ${({ theme }) => theme.colors.primary};
+
   text-align: center;
+  background: ${({ theme }) => theme.colors.primary};
 
   ${(props) => props.inverShadows ?
     css`box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.5), 0px 2px 4px rgba(0, 0, 0, 0.5);`
@@ -30,6 +32,7 @@ export const Background = styled.div`
 const Container = styled.div`
   width: 100%;
   height: 100%;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,10 +60,12 @@ const Container = styled.div`
 `;
 
 export const Title = styled.h2`
-  padding: 0;
-  margin: 0;
   height: 50px;
   width: 100%;
+
+  padding: 0;
+  margin: 0;
+
   line-height: 50px;
   font-style: normal;
   font-weight: 300;
@@ -68,18 +73,20 @@ export const Title = styled.h2`
 `;
 
 export const Text = styled.div`
+  width: 100%;
+  height: calc(100% - 50px - 10px);
+  padding: 0 20px 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: calc(100% - 50px - 10px);
-  padding: 0 20px 0 20px;
+
   font-style: normal;
   font-weight: 300;
   font-size: ${({ theme }) => theme.fonts.m};
 
   @media (min-width: 1000px) {
-    padding: 0 50px 0 50px;
+    padding: 0 50px 0;
     height: ${({small}) => small ? "calc(100% - 50px - 25px)" : "calc(100% - 50px - 35px)"};
   }
 `;

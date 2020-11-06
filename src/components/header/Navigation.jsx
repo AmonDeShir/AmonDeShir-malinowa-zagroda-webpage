@@ -5,8 +5,10 @@ import styled from "styled-components";
 const Background = styled.nav`
   position: relative;
   z-index: 1;
+
   width: 100vw;
   height: 35px;
+
   background: ${({ theme }) => theme.colors.second};
   box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.5);
 
@@ -15,10 +17,10 @@ const Background = styled.nav`
   } 
 
   ul {
+    display: flex;
     width: 100vw;
     margin: 0;
     padding: 0;
-    display: flex;
 
     @media (orientation: landscape) and (min-width: 140.85vmin){
       max-width: 140.85vmin;

@@ -8,13 +8,13 @@ const StyledList = styled.ul`
   display: flex;
   position: absolute;
 
+  width: ${({elementsCount}) => `calc(25px * ${elementsCount})`};
+  height: 26px;
+
   bottom: 5px; 
   left: 5px;
   margin: 0;
   padding: 0;
-  
-  height: 26px;
-  width: ${({elementsCount}) => `calc(25px * ${elementsCount})`};
 `;
 
 const CircleButtonList = ({elementsCount, selectedElementId, onButtonClick}) => {
