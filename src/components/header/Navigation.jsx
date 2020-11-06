@@ -18,6 +18,7 @@ const Background = styled.nav`
 
   ul {
     display: flex;
+
     width: 100vw;
     margin: 0;
     padding: 0;
@@ -87,14 +88,14 @@ const Navigation = () => {
       scrollTo(id, true);
   }
 
-  const scrollTo = (selector, top) => {
+  const scrollTo = (selector, willScrollToTop) => {
     const element = document.querySelector(selector);
     const rect = element?.getBoundingClientRect();
 
     if (element === null)
       return
 
-    if (top)
+    if (willScrollToTop)
       scrollToTop(rect);
     else
       scrollToBottom(rect);

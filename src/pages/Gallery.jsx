@@ -3,6 +3,7 @@ import { useDrag } from "react-use-gesture";
 import useWindowEvent from "../utilities/useWindowEvent";
 import Category from "../components/gallery/Category";
 import ImagesGrid from "../components/gallery/ImagesGrid";
+import FullscreenImage from "../components/gallery/FullscreenImage";
 
 import cow1 from "../assets/images/gallery/animals/cow1.jpg";
 import cow2 from "../assets/images/gallery/animals/cow2.jpg";
@@ -26,7 +27,6 @@ import work1 from "../assets/images/gallery/cheeseDairy/work1.jpeg";
 import work2 from "../assets/images/gallery/cheeseDairy/work2.jpeg";
 import work3 from "../assets/images/gallery/cheeseDairy/work3.jpeg";
 import work4 from "../assets/images/gallery/cheeseDairy/work4.png";
-import FullscreenImage from "../components/gallery/FullscreenImage";
 
 const images = [
   [
@@ -76,7 +76,7 @@ const Gallery = () => {
     const [move] = state.vxvy;
 
     const minMoveForceToShowNextImage = -0.5;
-    const minMOveForceToShowPrevImage = 0.5;
+    const minMoveForceToShowPrevImage = 0.5;
 
     if (!isFullscreenDisplayed){
       state.cancel();
@@ -88,7 +88,7 @@ const Gallery = () => {
       state.cancel();
     }
 
-    if (move >= minMOveForceToShowPrevImage){
+    if (move >= minMoveForceToShowPrevImage){
       showPrevImageHandler();
       state.cancel();
     }
@@ -151,11 +151,11 @@ const Gallery = () => {
     setIsFullscreenDisplayed(false);
   }
 
-  const handleCategoryChange = (value) => {
+  const categoryChangeHandler = (value) => {
     setCategory(Number(value))
   };
 
-  const handleImageClick = (image) => {
+  const imageClickHadler = (image) => {
     setImageOnFullscreen(image);
     setIsFullscreenDisplayed(true);
   }
@@ -166,8 +166,8 @@ const Gallery = () => {
 
   return (
     <>
-      <Category items={categories} onChange={handleCategoryChange} />
-      <ImagesGrid images={images[category]} onClick={handleImageClick} />
+      <Category items={categories} onChange={categoryChangeHandler} />
+      <ImagesGrid images={images[category]} onClick={imageClickHadler} />
       <FullscreenImage
         image={getFullscreenImage()}
         show={isFullscreenDisplayed}
