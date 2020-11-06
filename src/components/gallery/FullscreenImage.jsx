@@ -11,7 +11,6 @@ const Background = styled.div`
   
   top: 0;
   left: 0;
-
   width: 100vw;
   height: 100vh;
   
@@ -24,7 +23,6 @@ const Background = styled.div`
 
 const Icon = styled.div`
   position: fixed;
-  
   height: 30px;
   width: 30px;
   

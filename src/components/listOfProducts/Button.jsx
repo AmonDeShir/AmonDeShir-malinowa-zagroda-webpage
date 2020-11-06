@@ -22,6 +22,8 @@ const Background = styled.div`
   
   background: ${({theme, darkSecond}) => darkSecond ? theme.colors.darkSecond : theme.colors.primary};
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.5);
+
+  cursor: pointer;
 `;
 
 const Button = ({clicked, isGoat, onClick}) => (

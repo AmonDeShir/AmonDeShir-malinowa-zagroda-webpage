@@ -12,6 +12,8 @@ const CircleButton = styled.li`
 
   background-color: ${({theme, selected}) => selected ? theme.colors.primary : theme.colors.darkSecond};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) ${({selected}) => selected ? "" : ", inset 0px 4px 4px rgba(0, 0, 0, 0.52);"};
+
+  cursor: pointer;
 `;
 
 export default CircleButton;
