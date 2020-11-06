@@ -21,6 +21,10 @@ const Background = styled.div`
   background-color: rgba(0, 0, 0, 0.75);
 `;
 
+const Image = styled.img`
+  user-select: none;
+`;
+
 const Icon = styled.div`
   position: fixed;
   height: 30px;
@@ -53,10 +57,10 @@ const CloseButton = styled(Icon)`
   background-image: url(${closeIcon});
 `;
 
-const FullscreenImage = ({ image, show, onLeftArrowClick, onRightArrowClick, onCloseButtonClick}) => {
+const FullscreenImage = ({ image, show, onLeftArrowClick, onRightArrowClick, onCloseButtonClick, onPointerDown}) => {
   return show ? (
     <Background>
-      <img alt=" " src={image}  />
+      <Image alt=" " src={image} onPointerDown={onPointerDown} />
       <LeftArrow onClick={onLeftArrowClick} />
       <RightArrow onClick={onRightArrowClick} />
       <CloseButton onClick={onCloseButtonClick}/>
@@ -72,6 +76,7 @@ FullscreenImage.propTypes = {
   onLeftArrowClick: PropTypes.func,
   onRightArrowClick: PropTypes.func,
   onCloseButtonClick: PropTypes.func,
+  onPointerDown: PropTypes.func
 }
 
 FullscreenImage.defaultProps = {
@@ -80,6 +85,7 @@ FullscreenImage.defaultProps = {
   onLeftArrowClick: () => {},
   onRightArrowClick: () => {},
   onCloseButtonClick: () => {},
+  onPointerDown: () => {}
 }
 
 export default FullscreenImage;

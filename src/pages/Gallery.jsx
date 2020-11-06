@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
+import { useDrag } from "react-use-gesture";
 import useWindowEvent from "../utilities/useWindowEvent";
 import Category from "../components/gallery/Category";
 import ImagesGrid from "../components/gallery/ImagesGrid";
@@ -71,7 +72,29 @@ const Gallery = () => {
   const [isFullscreenDisplayed, setIsFullscreenDisplayed] = useState(false)
   const [imageOnFullscreen, setImageOnFullscreen] = useState(0)
 
-  const keyboardNavigationHandler = (event) => {
+  const gesturesEvents = useDrag((state) => {
+    const [move] = state.vxvy;
+
+    const minMoveForceToShowNextImage = -0.5;
+    const minMOveForceToShowPrevImage = 0.5;
+
+    if (!isFullscreenDisplayed){
+      state.cancel();
+      return;
+    }
+
+    if (move <= minMoveForceToShowNextImage){
+      showNextImageHandler();
+      state.cancel();
+    }
+
+    if (move >= minMOveForceToShowPrevImage){
+      showPrevImageHandler();
+      state.cancel();
+    }
+  });
+
+  useWindowEvent("keydown", (event) => {
     const key = event.code;
     const nextImageKeyCode = "ArrowLeft";
     const prevImageKeyCode = "ArrowRight";
@@ -79,7 +102,7 @@ const Gallery = () => {
 
     if (!isFullscreenDisplayed)
       return;
-    
+
     if (key === nextImageKeyCode)
       showNextImageHandler();
 
@@ -88,7 +111,7 @@ const Gallery = () => {
 
     if (key === closeFullScreenKeyCode)
       closeFullscreenHandler();
-  }
+  });
 
   const showNextImageHandler = () => {
     setImageOnFullscreenByIdManipulation((prevImageId) => prevImageId + 1);
@@ -141,8 +164,6 @@ const Gallery = () => {
     return getImageObjectFormArray(imageOnFullscreen).image;
   }
 
-  useWindowEvent("keydown", keyboardNavigationHandler);
-
   return (
     <>
       <Category items={categories} onChange={handleCategoryChange} />
@@ -153,6 +174,7 @@ const Gallery = () => {
         onLeftArrowClick={showPrevImageHandler}
         onRightArrowClick={showNextImageHandler}
         onCloseButtonClick={closeFullscreenHandler}
+        onPointerDown={gesturesEvents().onPointerDown}
       />
     </>
   );
